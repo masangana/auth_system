@@ -25,14 +25,17 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('dashboard', [AdminDashboardController::class, 'index'])->middleware('role:admin')->name('admin.dashboard');
 });
 
 Route::group(['prefix' => 'user'], function() {
-    Route::get('dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('dashboard', [UserDashboardController::class, 'index'])->middleware('role:user')->name('user.dashboard');
+
+
 });
+
+
 
 /*
 Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
