@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('place_id')->constrained('places');
             $table->string('title');
             $table->text('description');
             $table->float('max_price')->unsigned();
