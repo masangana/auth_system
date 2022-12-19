@@ -16,16 +16,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->truncate(); //for cleaning earlier data to avoid duplicate entries
         DB::table('users')->insert([
             'name' => 'the admin user',
-            'email' => 'iamadmin@gmail.com',
+            'email' => 'admin@mail.com',
             'role' => 'admin',
             'password' => Hash::make('password'),
         ]);
         DB::table('users')->insert([
             'name' => 'the seller user',
-            'email' => 'iamaseller@gmail.com',
+            'email' => 'user@mail.com',
             'password' => Hash::make('password'),
         ]);
     }
