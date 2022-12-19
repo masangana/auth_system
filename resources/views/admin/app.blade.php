@@ -13,10 +13,12 @@
             <div class="container-fluid page-body-wrapper">
 
                 @include('admin.layouts.navbar')
+                
 
                 <div class="main-panel">
 
                     <div class="content-wrapper">
+                        @include('admin.layouts.breadcrumb')
 
                         @yield('content')
 

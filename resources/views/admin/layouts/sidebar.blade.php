@@ -46,7 +46,7 @@
         </div>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="pages/forms/basic_elements.html">
+        <a class="nav-link" href="{{ Route('place.index') }} ">
           <span class="menu-icon">
             <i class="mdi mdi-home-modern"></i>
           </span>

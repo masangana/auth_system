@@ -41,9 +41,6 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'user'], function() {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->middleware('role:user')->name('user.dashboard');
 
-    //Route::middleware()
-
-
 });
 
 
