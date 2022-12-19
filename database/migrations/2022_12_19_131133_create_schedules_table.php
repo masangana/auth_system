@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('schedulable_type');
             $table->integer('schedulable_id');
-            $table->date('date_start');
-            $table->date('date_end');
+            $table->string('day');
+            $table->date('date_start')->nullable();
+            $table->date('date_end')->nullable();
+            $table->time('time_start');
+            $table->time('time_end');
             $table->timestamps();
         });
     }
