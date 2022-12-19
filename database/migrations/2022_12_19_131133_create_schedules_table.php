@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->string('schedulable_type');
+            $table->integer('schedulable_id');
+            $table->date('date_start');
+            $table->date('date_end');
             $table->timestamps();
         });
     }
