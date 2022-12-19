@@ -2,6 +2,8 @@
 
 @extends('admin.app')
 
+@section('pageTitle', 'Dashboard')
+
 @section('content')
 
 <div class="row">
