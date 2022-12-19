@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\PlaceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,11 +28,20 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('dashboard', [AdminDashboardController::class, 'index'])->middleware('role:admin')->name('admin.dashboard');
+    //Route::get('dashboard', [AdminDashboardController::class, 'index'])->middleware('role:admin')->name('admin.dashboard');
+
+    //Route::resource('place', PlaceController::class)->middleware('role:admin');
+
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+        Route::resource('place', PlaceController::class);
+    });
 });
 
 Route::group(['prefix' => 'user'], function() {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->middleware('role:user')->name('user.dashboard');
+
+    //Route::middleware()
 
 
 });
