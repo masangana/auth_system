@@ -7,8 +7,19 @@
 <div class="col-12 grid-margin">
     <div class="card">
       <div class="card-body">
+        @if (count($errors)>0)
+
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            
+        @endif
         <h4 class="card-title"> Nouveau Lieu</h4>
-        <form class="form-sample" method="POST" action="{{Route('place.store')}} ">
+        <form class="form-sample" method="POST" action="{{Route('place.store')}} " enctype="multipart/form-data">
             @csrf
             <p class="card-description"> Place info </p>
             <div class="row">
@@ -108,7 +119,7 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">File upload</label>
                         <div class="col-sm-9">
-                            <input type="file" name="img[]" class="file-upload-default" multiple>
+                            <input type="file" name="img[]" class="file-upload-default" accept=".jpg, .png, image/jpeg, image/png" multiple>
                             <div class="input-group col-xs-12">
                             <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                             <span class="input-group-append">
