@@ -28,9 +28,16 @@ class PlaceController extends Controller
         //return $request->all();
 
         $request->validate([
-            //'name' => 'required',
-            //'description' => 'required',
-           // 'img' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'img.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'town' => 'required',
+            'district' => 'required',
+            'avenue' => 'required',
+            'number' => 'required',
+            'phone' => 'required',
+            'mail' => 'required',
+            'web_site' => 'required',
         ]);
 
         //Create a new place
@@ -47,36 +54,48 @@ class PlaceController extends Controller
         $adress->district =  $request->district;
         $adress->avenue =  $request->avenue;
         $adress->number =  $request->number;
-        //$place->adress()->save($adress);
+        $place->adress()->save($adress);
 
-        //Upload & rename images
-        if ($request->hasFile('img')) {
-            foreach ($request->file('img') as $file) {
-                $imageName = time().rand(0,99).'.'.$file->extension(); 
-                $file->move(public_path('images'), $imageName);
-                
-                $image = new Image;
-                $image->link =  $imageName;
-                //$place->images()->save($image);
-
-            }
-        }
-        
-        
         //Create a new contact
-
         $contact = new Contact;
         $contact->phone =  $request->phone;
         $contact->mail =  $request->mail;
         $contact->web_site =  $request->web_site;
         $place->contacts()->save($contact);
 
+        //Upload & rename images
+        if ($request->hasFile('img')) {
+            foreach ($request->file('img') as $file) {
+                $imageName = time().rand(0,99).'.'.$file->extension(); 
+                $file->move(public_path('images'), $imageName);
+                $image = new Image;
+                $image->link =  $imageName;
+                $place->images()->save($image);
+            }
+        }
 
-/*
-        $adress->save();
-
-        $place->adress()->create($request->adress);
-
-        return redirect('/admin/place')->with('success', 'Place saved!');*/
+        return redirect('/admin/place')->with('success', 'Place created!');
+        
     }
+
+    public function show($id)
+    {
+        //
+    }
+
+    public function edit($id)
+    {
+        //
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    public function destroy($id)
+    {
+        //
+    }
+
 }
