@@ -1,6 +1,6 @@
 @extends('admin.app')
 
-@section('pageTitle', 'Add Place')
+@section('pageTitle', 'Edit Place')
 
 @section('content')
 
@@ -10,14 +10,16 @@
         @if (count($errors)>0)
 
             <div class="alert alert-danger">
+                <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{$error}}</li>
                     @endforeach
+                </ul>
             </div>
             
         @endif
         <h4 class="card-title"> Nouveau Lieu</h4>
-        <form class="form-sample" method="POST" action="{{Route('place.store')}} " enctype="multipart/form-data">
+        <form class="form-sample" method="POST" action="{{Route('place.store', ['place'  => $place])}} " enctype="multipart/form-data">
             @csrf
             <p class="card-description"> Place info </p>
             <div class="row">
@@ -25,7 +27,7 @@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Nom</label>
                     <div class="col-sm-9">
-                    <input type="text" class="form-control" name="name" />
+                    <input type="text" class="form-control" name="name" value="{{$post->name}} />
                     </div>
                 </div>
                 </div>
@@ -173,5 +175,6 @@
       </div>
     </div>
 </div>
+
 
 @endsection
