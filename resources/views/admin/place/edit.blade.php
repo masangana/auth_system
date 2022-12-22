@@ -27,7 +27,7 @@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Nom</label>
                     <div class="col-sm-9">
-                    <input type="text" class="form-control" name="name" value="{{$post->name}} />
+                    <input type="text" class="form-control" name="name" value="{{$place->name}}" />
                     </div>
                 </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Déscription</label>
                     <div class="col-sm-9">
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="description"></textarea>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="description" >{{$place->description}}</textarea>
                     </div>
                 </div>
                 </div>

@@ -86,14 +86,14 @@ class PlaceController extends Controller
 
     public function show($id)
     {
-        $place = Place::find($id)->with('adress', 'contacts', 'images')->firstOrFail();
+        $place = Place::with('adress', 'contacts', 'images')->where('id', $id)->firstOrFail();
         return $place;
         return view('admin.place.show', compact('place'));
     }
 
     public function edit($id)
     {
-        $place = Place::find($id)->with('adress', 'contacts', 'images')->firstOrFail();
+        $place = Place::with('adress', 'contacts', 'images')->where('id', $id)->firstOrFail();
         return view('admin.place.edit', 
             [
                 'place' => $place,
