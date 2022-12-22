@@ -13,15 +13,8 @@ class PlaceController extends Controller
 {
     public function index()
     {
-        /*return view('admin.place.home', 
-                ['places' => Place::all()
-                ->sortByDesc('created_at')
-                ->paginate(1)]);*/
-        //$places = Place::all()->sortByDesc('created_at')->paginate(1);
         $places = Place::paginate(10);
-        return view('admin.place.home', compact('places'));
-
-        
+        return view('admin.place.home', compact('places')); 
     }
 
     public function create()
@@ -87,7 +80,7 @@ class PlaceController extends Controller
     public function show($id)
     {
         $place = Place::with('adress', 'contacts', 'images')->where('id', $id)->firstOrFail();
-        return $place;
+        //return $place;
         return view('admin.place.show', compact('place'));
     }
 
