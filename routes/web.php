@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\PlaceController;
 
 /*
@@ -35,6 +36,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::middleware(['role:admin'])->group(function () {
         Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
         Route::resource('place', PlaceController::class);
+        Route::resource('event', EventController::class);
     });
 });
 

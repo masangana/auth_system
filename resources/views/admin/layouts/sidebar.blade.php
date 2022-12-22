@@ -46,12 +46,20 @@
         </div>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{ Route('place.index') }} ">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic2">
           <span class="menu-icon">
-            <i class="mdi mdi-home-modern"></i>
+            <i class="mdi mdi-google-cardboard"></i>
           </span>
-          <span class="menu-title">Add Place</span>
+          <span class="menu-title">Les Evenements</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="ui-basic2">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ Route('event.index') }}">Tout Voir</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ Route('event.create') }}">Ajouter</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+          </ul>
+        </div>
       </li>
       <li class="nav-item menu-items">
         <a class="nav-link" href="pages/tables/basic-table.html">

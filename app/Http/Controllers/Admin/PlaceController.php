@@ -18,7 +18,7 @@ class PlaceController extends Controller
                 ->sortByDesc('created_at')
                 ->paginate(1)]);*/
         //$places = Place::all()->sortByDesc('created_at')->paginate(1);
-        $places = Place::paginate(2);
+        $places = Place::paginate(10);
         return view('admin.place.home', compact('places'));
 
         
