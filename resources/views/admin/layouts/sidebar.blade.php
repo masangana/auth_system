@@ -62,12 +62,20 @@
         </div>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="pages/tables/basic-table.html">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic3">
           <span class="menu-icon">
-            <i class="mdi mdi-table-large"></i>
+            <i class="mdi mdi-google-cardboard"></i>
           </span>
-          <span class="menu-title">Tables</span>
+          <span class="menu-title">Outils</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="ui-basic3">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ Route('category.index') }}">Les Categories</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ Route('event.create') }}">Ajouter</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+          </ul>
+        </div>
       </li>
       <li class="nav-item menu-items">
         <a class="nav-link" href="pages/charts/chartjs.html">

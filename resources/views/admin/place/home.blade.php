@@ -50,7 +50,18 @@
                                             {{ $place->name }}
                                         </td>
                                         <td style="border: solid;">
-                                            {{  Str::limit($place->description, 100) }}
+                                            @if (count($place->categories) == 0)
+                                                <p>
+                                                    No categories
+                                                </p>
+                                            @else
+                                                @foreach ($place->categories as $category)
+                                                    <label class="badge badge-info">
+                                                        {{ $category->name }}
+                                                    </label>
+                                                @endforeach
+                                            
+                                            @endif
                                         </td>
                                         <td style="width: 200px; border: solid;">
                                             <div class="d-flex justify-content-around flex-nowrap">

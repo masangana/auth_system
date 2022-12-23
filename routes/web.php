@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PlaceController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Models\Category;
 use App\Models\Service;
 
 /*
@@ -42,6 +44,7 @@ Route::group(['prefix' => 'admin'], function() {
         Route::resource('event', EventController::class);
         Route::resource('image', ImageController::class);
         Route::resource('service', ServiceController::class);
+        Route::resource('category', CategoryController::class);
     });
 });
 

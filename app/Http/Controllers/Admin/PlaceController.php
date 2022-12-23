@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Adress;
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Place;
 use App\Models\Image;
@@ -19,7 +20,10 @@ class PlaceController extends Controller
 
     public function create()
     {
-        return view('admin.place.create');
+        $categories = Category::all();
+        return view('admin.place.create', [
+            'categories' => $categories
+        ]);
     }
 
     public function store(Request $request)
@@ -72,6 +76,9 @@ class PlaceController extends Controller
                 $place->images()->save($image);
             }
         }
+
+        //Attach with categories
+        $place->categories()->attach($request->categories);
 
         return redirect('/admin/place')->with('success', 'Place created!');
         

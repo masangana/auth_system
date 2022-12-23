@@ -103,12 +103,10 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Categorie</label>
                         <div class="col-sm-9">
-                            <select class="js-example-basic-multiple form-control" multiple="multiple" name="categories[]" style="width:100%">
-                                <option value="AL">Alabama</option>
-                                <option value="WY">Wyoming</option>
-                                <option value="AM">America</option>
-                                <option value="CA">Canada</option>
-                                <option value="RU">Russia</option>
+                            <select class="js-example-basic-multiple form-control" multiple="multiple" name="categories[]" style="width:100%" required>
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
                             </select>
                         </div>   
                     </div>

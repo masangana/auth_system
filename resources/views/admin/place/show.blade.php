@@ -160,10 +160,6 @@
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Liste des Services</h4>
-              <div class="add-items d-flex">
-                <input type="text" class="form-control todo-list-input" placeholder="enter task..">
-                <button class="add btn btn-primary todo-list-add-btn">Add</button>
-              </div>
               <div class="list-wrapper">
                 <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
                   @if ( count($place->services) == 0)
@@ -171,8 +167,8 @@
                       Pas de service
                     </h5>
                   @else
-                    @foreach ($place->services as $service)
-                      <li class="border-bottom">
+                    @foreach ($place->services as $service )
+                      <li class="border-bottom" >
                         <div class="form-check form-check-primary">
                           <label class="form-check-label"> {{ $service->title }}  </label>
                         </div>
