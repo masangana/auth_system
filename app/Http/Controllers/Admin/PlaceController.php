@@ -94,7 +94,7 @@ class PlaceController extends Controller
 
     public function edit($id)
     {
-        $place = Place::with('adress', 'contacts', 'images')->where('id', $id)->firstOrFail();
+        $place = Place::with('adress', 'contacts', 'images','categories')->where('id', $id)->firstOrFail();
         return view('admin.place.edit', 
             [
                 'place' => $place,
@@ -137,6 +137,9 @@ class PlaceController extends Controller
         $contact->web_site =  $request->web_site;
         $contact->save();
 
+        //Attache with categories
+        $place->categories()->attach($request->categories);
+        
         //Upload & rename images
         if ($request->hasFile('img')) {
             foreach ($request->file('img') as $file) {
