@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PlaceController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Models\Service;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,7 @@ Route::group(['prefix' => 'admin'], function() {
         Route::resource('place', PlaceController::class);
         Route::resource('event', EventController::class);
         Route::resource('image', ImageController::class);
+        Route::resource('service', ServiceController::class);
     });
 });
 

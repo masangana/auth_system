@@ -20,15 +20,22 @@
                 <br>
 
                 <hr style="border: 0; border-top: 1px solid #ccc;">
-                <h5>Adresse </h5>
-                <p>
-                    <strong>Commune : </strong>{{ $place->adress[0]->town }}
-                    <br>
-                    <strong>Quartier : </strong>{{ $place->adress[0]->district }}
-                    <br>
-                    <strong>Avenue : </strong>{{ $place->adress[0]->avenue }}, Nº {{ $place->adress[0]->number }}
-                    <br>
-                </p>
+                <h5>Adresse </h5>   
+                @if (count($place->adress) == 0)
+                  <p>
+                    Aucune information actuellement
+                  </p>
+                @else
+                  <p>
+                      <strong>Commune : </strong>{{ $place->adress[0]->town }}
+                      <br>
+                      <strong>Quartier : </strong>{{ $place->adress[0]->district }}
+                      <br>
+                      <strong>Avenue : </strong>{{ $place->adress[0]->avenue }}, Nº {{ $place->adress[0]->number }}
+                      <br>
+                  </p>
+                @endif
+                
               </div>
             </div>
           </div>
@@ -38,43 +45,34 @@
                 <h4 class="card-title">Ajout d'un Service</h4>
                 <p class="card-description"> Add class <code>.table-hover</code>
                 </p>
-                <form class="forms-sample">
+                <form class="forms-sample" method="POST" action="{{Route('service.store', ['place'  => $place])}} ">
+                    @csrf
                     <div class="form-group row">
-                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
+                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nom</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username">
+                        <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Nom du service" name="title" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                      <label for="minPrice" class="col-sm-3 col-form-label">Prix Minimum</label>
                       <div class="col-sm-9">
-                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                        <input type="number" class="form-control" id="minPrice" placeholder="Prix min" name="minPrice" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mobile</label>
+                      <label for="maxPrice" class="col-sm-3 col-form-label">Prix Maximal</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="exampleInputMobile" placeholder="Mobile number">
+                        <input type="number" class="form-control" id="maxPrice" placeholder="Prix max" name="maxPrice" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                      <label for="description" class="col-sm-3 col-form-label">Description du Service</label>
                       <div class="col-sm-9">
-                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                        <textarea class="form-control" id="description" rows="4" name="description" ></textarea>
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Re Password</label>
-                      <div class="col-sm-9">
-                        <input type="password" class="form-control" id="exampleInputConfirmPassword2" placeholder="Password">
-                      </div>
-                    </div>
-                    <div class="form-check form-check-flat form-check-primary">
-                      <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input"> Remember me </label>
-                    </div>
+                    
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-dark">Cancel</button>
                   </form>
               </div>
             </div>
@@ -89,37 +87,46 @@
                 <h4 class="card-title">Contact</h4>
               </div>
               <div class="preview-list">
-                <div class="preview-item border-bottom">
-                  <div class="preview-item-content d-flex flex-grow">
-                    <div class="flex-grow">
-                      <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                        <h6 class="preview-subject">Téléphone</h6>
+                @if ( count($place->contacts) == 0 )
+                  <div class="preview-item">
+                    <p>
+                      Pas d'information
+                    </p>
+                  </div>
+                @else
+                  <div class="preview-item border-bottom">
+                    <div class="preview-item-content d-flex flex-grow">
+                      <div class="flex-grow">
+                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                          <h6 class="preview-subject">Téléphone</h6>
+                        </div>
+                        <a class="text-muted" href="tel:{{ $place->contacts[0]->phone }}" >{{ $place->contacts[0]->phone }}</a>
                       </div>
-                      <a class="text-muted" href="tel:{{ $place->contacts[0]->phone }}" >{{ $place->contacts[0]->phone }}</a>
                     </div>
                   </div>
+                  <div class="preview-item border-bottom">
+                      <div class="preview-item-content d-flex flex-grow">
+                        <div class="flex-grow">
+                          <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                            <h6 class="preview-subject">Mail</h6>
+                          </div>
+                          <a class="text-muted" href="mailto:{{ $place->contacts[0]->mail }}" >{{ $place->contacts[0]->mail }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="preview-item border-bottom">
+                      <div class="preview-item-content d-flex flex-grow">
+                        <div class="flex-grow">
+                          <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                            <h6 class="preview-subject">Site Web</h6>
+                          </div>
+                          <a class="text-muted" href="{{ $place->contacts[0]->web_site }}" target="_blank">{{ $place->contacts[0]->web_site }}</a>
+                        </div>
+                      </div>
+                  </div>
+                @endif
+
                 </div>
-                <div class="preview-item border-bottom">
-                    <div class="preview-item-content d-flex flex-grow">
-                      <div class="flex-grow">
-                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                          <h6 class="preview-subject">Mail</h6>
-                        </div>
-                        <a class="text-muted" href="mailto:{{ $place->contacts[0]->mail }}" >{{ $place->contacts[0]->mail }}</a>
-                      </div>
-                    </div>
-                  </div>
-                <div class="preview-item border-bottom">
-                    <div class="preview-item-content d-flex flex-grow">
-                      <div class="flex-grow">
-                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                          <h6 class="preview-subject">Site Web</h6>
-                        </div>
-                        <a class="text-muted" href="{{ $place->contacts[0]->web_site }}" target="_blank">{{ $place->contacts[0]->web_site }}</a>
-                      </div>
-                    </div>
-                  </div>
-              </div>
             </div>
           </div>
         </div>
@@ -128,19 +135,23 @@
             <div class="card-body">
               <h4 class="card-title">Images Slide</h4>
               <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
-                @foreach ($place->images as $image )
-                    <div class="item">
-                        <img src="{{asset("images/".$image->link)}}" class="img-fluid img-thumbnail" alt="{{$image->link}} ">
-                        <form method="post" action="{{route('image.destroy', ['image' => $image->id])}}">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn ">
-                                <i class="mdi mdi-delete"></i>
-                            </button>
-                        </form> 
-                    </div>
-                    
-                @endforeach
+                @if (count($place->images) == 0)
+                  Aucne image
+                @else
+                  @foreach ($place->images as $image )
+                      <div class="item">
+                          <img src="{{asset("images/".$image->link)}}" class="img-fluid img-thumbnail" alt="{{$image->link}} ">
+                          <form method="post" action="{{route('image.destroy', ['image' => $image->id])}}">
+                              @method('delete')
+                              @csrf
+                              <button type="submit" class="btn ">
+                                  <i class="mdi mdi-delete"></i>
+                              </button>
+                          </form> 
+                      </div>
+                  @endforeach
+                @endif
+                
               </div>
             </div>
           </div>
@@ -148,48 +159,36 @@
         <div class="col-md-12 col-xl-4 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">To do list</h4>
+              <h4 class="card-title">Liste des Services</h4>
               <div class="add-items d-flex">
                 <input type="text" class="form-control todo-list-input" placeholder="enter task..">
                 <button class="add btn btn-primary todo-list-add-btn">Add</button>
               </div>
               <div class="list-wrapper">
                 <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
-                  <li>
-                    <div class="form-check form-check-primary">
-                      <label class="form-check-label">
-                        <input class="checkbox" type="checkbox"> Create invoice </label>
-                    </div>
-                    <i class="remove mdi mdi-close-box"></i>
-                  </li>
-                  <li>
-                    <div class="form-check form-check-primary">
-                      <label class="form-check-label">
-                        <input class="checkbox" type="checkbox"> Meeting with Alita </label>
-                    </div>
-                    <i class="remove mdi mdi-close-box"></i>
-                  </li>
-                  <li class="completed">
-                    <div class="form-check form-check-primary">
-                      <label class="form-check-label">
-                        <input class="checkbox" type="checkbox" checked> Prepare for presentation </label>
-                    </div>
-                    <i class="remove mdi mdi-close-box"></i>
-                  </li>
-                  <li>
-                    <div class="form-check form-check-primary">
-                      <label class="form-check-label">
-                        <input class="checkbox" type="checkbox"> Plan weekend outing </label>
-                    </div>
-                    <i class="remove mdi mdi-close-box"></i>
-                  </li>
-                  <li>
-                    <div class="form-check form-check-primary">
-                      <label class="form-check-label">
-                        <input class="checkbox" type="checkbox"> Pick up kids from school </label>
-                    </div>
-                    <i class="remove mdi mdi-close-box"></i>
-                  </li>
+                  @if ( count($place->services) == 0)
+                    <h5 class="text-danger">
+                      Pas de service
+                    </h5>
+                  @else
+                    @foreach ($place->services as $service)
+                      <li class="border-bottom">
+                        <div class="form-check form-check-primary">
+                          <label class="form-check-label"> {{ $service->title }}  </label>
+                        </div>
+                        
+                          <form class="remove" method="post" action="{{route('service.destroy', ['service' => $service->id])}}" >
+                              @method('delete')
+                              @csrf
+                              <button type="submit" class="btn ">
+                                  <i class=" mdi mdi-close-box"></i>
+                              </button>
+                          </form>
+                        
+                      </li>
+                    @endforeach
+                    
+                  @endif
                 </ul>
               </div>
             </div>
