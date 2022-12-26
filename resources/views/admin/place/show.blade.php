@@ -43,7 +43,15 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Ajout d'un Service</h4>
-                <p class="card-description"> Add class <code>.table-hover</code>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 </p>
                 <form class="forms-sample" method="POST" action="{{Route('service.store', ['place'  => $place])}} ">
                     @csrf
@@ -52,6 +60,17 @@
                       <div class="col-sm-9">
                         <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Nom du service" name="title" required>
                       </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Type</label>
+                      <div class="col-sm-9">
+                          <select class="js-example-basic-multiple form-control"  name="type" style="width:100%" required>
+                              <option value="">Selectionner un type</option>
+                              @foreach ($types as $type)
+                                  <option value="{{$type->id}}">{{$type->name}}</option>
+                              @endforeach
+                          </select>
+                      </div> 
                     </div>
                     <div class="form-group row">
                       <label for="minPrice" class="col-sm-3 col-form-label">Prix Minimum</label>

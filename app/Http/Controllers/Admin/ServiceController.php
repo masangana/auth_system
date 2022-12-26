@@ -22,19 +22,21 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
-       // return $request->all();
+       
 
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'maxPrice' => 'required',
-            'minPrice' => 'required',
+            'maxPrice' => 'required|gt:minPrice',
+            'minPrice' => 'required|lt:maxPrice',
+            'type' => 'required'
         ]);
-
+        //return $request->all();
         //Create a new service
         $service = new Service;
         $service->place_id = $request->place ;
         $service->title = $request->title;
+        $service->type_id = $request->type;
         $service->description = $request->description;
         $service->max_price = $request->maxPrice;
         $service->min_price = $request->minPrice;
@@ -57,6 +59,7 @@ class ServiceController extends Controller
 
     public function update(Request $request, $id)
     {
+        //return $request->all();
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -67,6 +70,7 @@ class ServiceController extends Controller
         $service = Service::find($id);
         $service->title = $request->title;
         $service->description = $request->description;
+        $service->type_id = $request->type;
         $service->max_price = $request->maxPrice;
         $service->min_price = $request->minPrice;
         $service->save();

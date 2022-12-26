@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Place;
 use App\Models\Image;
+use App\Models\Service;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -87,9 +89,10 @@ class PlaceController extends Controller
     public function show($id)
     {
         $place = Place::with('adress', 'contacts', 'images', 'services')->where('id', $id)->firstOrFail();
+        $types = Type::all();
         
         //return $place;
-        return view('admin.place.show', compact('place'));
+        return view('admin.place.show', compact('place', 'types'));
     }
 
     public function edit($id)

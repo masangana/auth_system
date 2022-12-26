@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class TypeController extends Controller
 {
     public function index()
     {
-        $categories = Category::paginate(10);
-        return view('admin.category.index', [
-            'categories' => $categories
+        $types = Type::paginate(10);
+        return view('admin.type.home', [
+            'types' => $types
         ]
         );
     }
@@ -28,12 +28,12 @@ class CategoryController extends Controller
             'description' => 'required',
         ]);
 
-        $category = new Category;
-        $category->name = $request->name;
-        $category->description = $request->description;
-        $category->save();
+        $type = new Type;
+        $type->name = $request->name;
+        $type->description = $request->description;
+        $type->save();
 
-        return redirect()->route('category.index');
+        return redirect()->route('type.index');
     }
 
     public function show($id)
@@ -53,10 +53,8 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-        Category::where('id', $id)->delete();
-        return redirect()->route('category.index');
+        Type::where('id', $id)->delete();
+        return redirect()->route('type.index');
 
     }
-
-
 }

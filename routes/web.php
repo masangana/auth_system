@@ -10,8 +10,10 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PlaceController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Models\Category;
 use App\Models\Service;
+use App\Models\Type;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +47,7 @@ Route::group(['prefix' => 'admin'], function() {
         Route::resource('image', ImageController::class);
         Route::resource('service', ServiceController::class);
         Route::resource('category', CategoryController::class);
+        Route::resource('type', TypeController::class);
     });
 });
 

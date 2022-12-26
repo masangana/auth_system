@@ -41,7 +41,6 @@
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ Route('place.index') }}">Tout Voir</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ Route('place.create') }}">Ajouter</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
           </ul>
         </div>
       </li>
@@ -57,7 +56,6 @@
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ Route('event.index') }}">Tout Voir</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ Route('event.create') }}">Ajouter</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
           </ul>
         </div>
       </li>
@@ -72,7 +70,7 @@
         <div class="collapse" id="ui-basic3">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ Route('category.index') }}">Les Categories</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{ Route('event.create') }}">Ajouter</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ Route('type.index') }}">Les Types</a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
           </ul>
         </div>
