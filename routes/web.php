@@ -9,9 +9,11 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PlaceController;
+use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Models\Category;
+use App\Models\Schedule;
 use App\Models\Service;
 use App\Models\Type;
 
@@ -48,6 +50,8 @@ Route::group(['prefix' => 'admin'], function() {
         Route::resource('service', ServiceController::class);
         Route::resource('category', CategoryController::class);
         Route::resource('type', TypeController::class);
+        Route::post('place/schedule',[ ScheduleController::class, 'place'])->name('schedule.place');
+        Route::post('event/schedule',[ ScheduleController::class, 'event'])->name('schedule.event');
     });
 });
 

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('place_id')->constrained('places')->onDelete('cascade');
             $table->string('day');
-            $table->time('time_start');
-            $table->time('time_end');
+            $table->time('open');
+            $table->time('close');
             $table->boolean('is_open')->default(true);
             $table->timestamps();
         });

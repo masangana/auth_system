@@ -209,6 +209,155 @@
             </div>
           </div>
         </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Transaction History</h4>
+            <canvas id="transaction-history" class="transaction-chart"></canvas>
+            <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+              <div class="text-md-center text-xl-left">
+                <h6 class="mb-1">Transfer to Paypal</h6>
+                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+              </div>
+              <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                <h6 class="font-weight-bold mb-0">$236</h6>
+              </div>
+            </div>
+            <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+              <div class="text-md-center text-xl-left">
+                <h6 class="mb-1">Tranfer to Stripe</h6>
+                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+              </div>
+              <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                <h6 class="font-weight-bold mb-0">$593</h6>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="col-md-8 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Horizontal Form</h4>
+            <p class="card-description"> Horizontal form layout </p>
+            <form class="forms-sample" method="POST" action="{{Route('schedule.place', ['place'  => $place])}} ">
+              @csrf
+              <div class="form-group row">
+                <div class="form-check col-sm-3">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" checked name="days[]" value="monday"> Lundi </label>
+                </div>
+                
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="monday" name="mondayStart" >
+                </div>
+
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="monday" name="mondayEnd" >
+                </div>
+                
+              </div>
+
+              <div class="form-group row">
+                <div class="form-check col-sm-3">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" checked value="tuesday" name="days[]"> Mardi </label>
+                </div>            
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="exampleInputUsername2" name="tuesdayStart" >
+                </div>
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="exampleInputUsername2" name="tuesdayEnd">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="form-check col-sm-3">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" checked name="days[]" value="wednesday"> Mercredi </label>
+                </div>             
+                <div class="col-sm-3">
+                  
+                  <input type="time" class="form-control" id="Wednesday" name="wednesdayStart">
+                </div>
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="Wednesday" name="wednesdayEnd">
+                </div>               
+              </div>
+
+              <div class="form-group row">
+                <div class="form-check col-sm-3">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" checked name="days[]" value="thursday"> Jeudi </label>
+                </div>
+
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="thursday" name="thursdayStart">
+                </div>
+
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="thursday" name="thursdayEnd">
+                </div>
+
+              </div>
+
+              <div class="form-group row">
+                <div class="form-check col-sm-3">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" checked name="days[]" value="friday"> Vendredi </label>
+                </div>
+
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="friday" name="fridayStart">
+                </div>
+
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="friday" name="fridayEnd">
+                </div>
+
+              </div>
+
+              <div class="form-group row">
+                <div class="form-check col-sm-3">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" checked name="days[]" value="saturday"> Samedi </label>
+                </div>
+
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="saturday" name="saturdayStart">
+                </div>
+
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="saturday" name="saturdayEnd">
+                </div>
+
+              </div>
+
+              <div class="form-group row">
+                <div class="form-check col-sm-3">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="days[]" value="sunday"> Dimanche </label>
+                </div>
+                
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="sundayStart" name="sundayStart">
+                </div>
+
+                <div class="col-sm-3">
+                  <input type="time" class="form-control" id="sundayEnd" name="sundayEnd">
+                </div>
+                
+              </div>
+              
+              <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              <button class="btn btn-dark">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
 @endsection
