@@ -57,6 +57,8 @@ class PlaceController extends Controller
         $adress = new Adress;
         $adress->town =  $request->town;
         $adress->district =  $request->district;
+        $adress->city =  $request->city;
+        $adress->country =  $request->country;
         $adress->avenue =  $request->avenue;
         $adress->number =  $request->number;
         $place->adress()->save($adress);
@@ -129,6 +131,8 @@ class PlaceController extends Controller
         $adress = Adress::find($id);
         $adress->town =  $request->town;
         $adress->district =  $request->district;
+        $adress->city =  $request->city;
+        $adress->country =  $request->country;
         $adress->avenue =  $request->avenue;
         $adress->number =  $request->number;
         $adress->save();

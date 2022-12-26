@@ -51,6 +51,8 @@ class EventController extends Controller
         $adress = new Adress;
         $adress->town =  $request->town;
         $adress->district =  $request->district;
+        $adress->city =  $request->city;
+        $adress->country =  $request->country;
         $adress->avenue =  $request->avenue;
         $adress->number =  $request->number;
         $event->adress()->save($adress);

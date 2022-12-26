@@ -97,6 +97,31 @@
         <div class="card-body">
           <h4 class="card-title">Horaire d'ouverture</h4>
 
+          @if (count($event->schedules) == 0)
+            <p>
+              Pas d'information
+            </p>
+          @else
+            @foreach ($event->schedules as $schedule )
+              <div class="preview-item border-bottom">
+                <div class="preview-item-content d-flex flex-grow">
+                  <div class="flex-grow">
+                    <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                      <h6 class="preview-subject text-capitalize">{{$schedule->title}} </h6>
+                      <p>
+                        Du <strong> {{$schedule->date_start->format('d.m.Y')}} </strong> Au {{$schedule->date_end->format('d.m.Y')}}
+                      </p>
+
+                      <p>
+                        De {{$schedule->time_start->format('H:i')}} A {{$schedule->time_end->format('H:i')}}
+                      </p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            @endforeach
+          @endif
+
         </div>
       </div>
     </div>

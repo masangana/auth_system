@@ -228,11 +228,14 @@
                     <div class="preview-item-content d-flex flex-grow">
                       <div class="flex-grow">
                         <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                          <h6 class="preview-subject">$schedule->day </h6>
+                          <h6 class="preview-subject text-capitalize">{{$schedule->day}} </h6>
+                          <p>
+                            {{$schedule->open}} - {{$schedule->close}}
+                          </p>
+                          </div>
                         </div>
-                  
-                    </div>
-                </div>
+                      </div>
+                  </div>
                   @endforeach
                   
             @endif

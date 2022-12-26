@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->foreignId('place_id')->constrained('places');
-            $table->foreignId('type_id')->constrained('types')->cascadeOnDelete();
+            $table->foreignId('type_id')->constrained('types');
             $table->string('title');
             $table->text('description');
             $table->float('max_price')->unsigned();

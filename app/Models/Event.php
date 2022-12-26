@@ -9,6 +9,7 @@ class Event extends Model
 {
     use HasFactory;
 
+
     protected $fillable = [
         'title',
         'description',
@@ -17,7 +18,7 @@ class Event extends Model
 
     public function schedules()
     {
-        return $this->hasMany(Schedule::class, 'event_schedules');
+        return $this->hasMany(event_schedule::class);
     }
 
     public function comments()
