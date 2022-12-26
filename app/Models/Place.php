@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Contact;
+use App\Models\Place_chedule;
 
 class Place extends Model
 {
@@ -42,7 +43,7 @@ class Place extends Model
 
     public function schedules()
     {
-        return $this->hasMany(Schedule::class, 'place_schedules');
+        return $this->hasMany(Place_schedule::class);
     }
 
 

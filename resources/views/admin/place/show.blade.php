@@ -215,26 +215,29 @@
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Transaction History</h4>
-            <canvas id="transaction-history" class="transaction-chart"></canvas>
-            <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-              <div class="text-md-center text-xl-left">
-                <h6 class="mb-1">Transfer to Paypal</h6>
-                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-              </div>
-              <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                <h6 class="font-weight-bold mb-0">$236</h6>
-              </div>
-            </div>
-            <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-              <div class="text-md-center text-xl-left">
-                <h6 class="mb-1">Tranfer to Stripe</h6>
-                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-              </div>
-              <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                <h6 class="font-weight-bold mb-0">$593</h6>
-              </div>
-            </div>
+            <h4 class="card-title">Horaire d'ouverture</h4>
+            @if ( count($place->schedules) == 0 )
+                  <div class="preview-item">
+                    <p>
+                      Pas d'information
+                    </p>
+                  </div>
+            @else
+                  @foreach ($place->schedules as $schedule )
+                  <div class="preview-item border-bottom">
+                    <div class="preview-item-content d-flex flex-grow">
+                      <div class="flex-grow">
+                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                          <h6 class="preview-subject">$schedule->day </h6>
+                        </div>
+                  
+                    </div>
+                </div>
+                  @endforeach
+                  
+            @endif
+
+
           </div>
         </div>
       </div>
