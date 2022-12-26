@@ -17,7 +17,7 @@ class Event extends Model
 
     public function schedules()
     {
-        return $this->morphMany(Schedule::class, 'schedulable');
+        return $this->hasMany(Schedule::class, 'event_schedules');
     }
 
     public function comments()

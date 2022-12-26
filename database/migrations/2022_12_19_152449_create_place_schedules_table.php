@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('place_schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('place_id')->constrained('places')->onDelete('cascade');
+            $table->string('day');
+            $table->time('time_start');
+            $table->time('time_end');
+            $table->boolean('is_open')->default(true);
             $table->timestamps();
         });
     }

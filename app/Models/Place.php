@@ -10,11 +10,6 @@ class Place extends Model
 {
     use HasFactory;
 
-    public function schedules()
-    {
-        return $this->morphMany(Schedule::class, 'schedulable');
-    }
-
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
@@ -43,6 +38,11 @@ class Place extends Model
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class, 'place_schedules');
     }
 
 
