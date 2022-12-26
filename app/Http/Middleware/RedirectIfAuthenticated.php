@@ -38,13 +38,14 @@ class RedirectIfAuthenticated
             case 'admin':
                return redirect('admin/dashboard');
                break;
-            case 'user':
+               
+            default:
                return redirect('user/dashboard');
                break; 
       
-            default:
+           /* default:
                return redirect('/home'); 
-               break;
+               break;*/
           }
         }
         return $next($request);

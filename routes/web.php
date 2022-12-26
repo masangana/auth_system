@@ -1,10 +1,21 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\PlaceController;
+use App\Http\Controllers\Admin\ScheduleController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TypeController;
+use App\Models\Category;
+use App\Models\Schedule;
+use App\Models\Service;
+use App\Models\Type;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +38,25 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('dashboard', [AdminDashboardController::class, 'index'])->middleware('role:admin')->name('admin.dashboard');
+    //Route::get('dashboard', [AdminDashboardController::class, 'index'])->middleware('role:admin')->name('admin.dashboard');
+
+    //Route::resource('place', PlaceController::class)->middleware('role:admin');
+
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+        Route::resource('place', PlaceController::class);
+        Route::resource('event', EventController::class);
+        Route::resource('image', ImageController::class);
+        Route::resource('service', ServiceController::class);
+        Route::resource('category', CategoryController::class);
+        Route::resource('type', TypeController::class);
+        Route::post('place/schedule',[ ScheduleController::class, 'place'])->name('schedule.place');
+        Route::post('event/schedule',[ ScheduleController::class, 'event'])->name('schedule.event');
+    });
 });
 
 Route::group(['prefix' => 'user'], function() {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->middleware('role:user')->name('user.dashboard');
-
 
 });
 

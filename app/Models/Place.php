@@ -4,16 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use PhpParser\Node\Expr\AssignOp\Concat;
+use App\Models\Contact;
+use App\Models\Place_chedule;
 
 class Place extends Model
 {
     use HasFactory;
-
-    public function schedules()
-    {
-        return $this->morphMany(Schedule::class, 'schedulable');
-    }
 
     public function comments()
     {
@@ -32,12 +28,22 @@ class Place extends Model
 
     public function contacts()
     {
-        return $this->morphMany(Concat::class, 'contactable');
+        return $this->morphMany(Contact::class, 'contactable');
     }
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'category_places');
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(Place_schedule::class);
     }
 
 
