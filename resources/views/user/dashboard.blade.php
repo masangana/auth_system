@@ -1,6 +1,8 @@
 
 
-@extends('layouts.app')
+@extends('user.app')
+
+@section('pageTitle', 'Home')
 
 @section('content')
 <div class="container">
@@ -17,6 +19,8 @@
                     @endif
 
                     {{ __('Hello SELLER, You are logged in!') }}
+
+                    This is dash
                 </div>
             </div>
         </div>
