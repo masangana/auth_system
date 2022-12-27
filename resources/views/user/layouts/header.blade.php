@@ -7,7 +7,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light p-0">
                   
                   <div class="logo">
-                      <a class="d-block" href="index-2.html">
+                      <a class="d-block" href="{{Route('user.dashboard')}}">
                         <img loading="lazy" src="images/logo.png" alt="Constra">
                       </a>
                   </div><!-- logo end -->
