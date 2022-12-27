@@ -5,25 +5,51 @@
 @section('pageTitle', 'Home')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+        <!-- Rooms Section Begin -->
+        <section class="rooms-section spad">
+            <div class="container">
+                <div class="row">
+                    @if ( count($places) == 0)
+                        <p>
+                            No place
+                        </p>
+                    @else
+                        @foreach ($places as $place )
+                            <div class="col-lg-4 col-md-6">
+                                <div class="room-item">
+                                    <img src="img/room/room-1.jpg" alt="">
+                                    <div class="ri-text">
+                                        <h4> {{$place->name}} </h4>
+                                        <h3>{{$place->like}}<span> Likes</span></h3>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="r-o">Size:</td>
+                                                    <td>30 ft</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="r-o">Capacity:</td>
+                                                    <td>Max persion 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="r-o">Bed:</td>
+                                                    <td>King Beds</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="r-o">Services:</td>
+                                                    <td>Wifi, Television, Bathroom,...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <a href="{{ route('place.show', $place->id) }}" class="primary-btn">More Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     @endif
-
-                    {{ __('Hello SELLER, You are logged in!') }}
-
-                    This is dash
+                    
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </section>
+        <!-- Rooms Section End -->
 @endsection

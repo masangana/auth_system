@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PlaceController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\User\PlaceController as UserPlaceController;
 use App\Models\Category;
 use App\Models\Schedule;
 use App\Models\Service;
@@ -57,6 +58,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 Route::group(['prefix' => 'user'], function() {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->middleware('role:user')->name('user.dashboard');
+    Route::resource('place', UserPlaceController::class);
 
 });
 
