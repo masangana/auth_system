@@ -12,7 +12,7 @@ class PlaceController extends Controller
     {
         //$places = Place::all();
         $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(10);
-        return $places;
+        //return $places;
         return view('user.place.index', [
             'places' => $places
         ]);

@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\User\PlaceController as UserPlaceController;
+use App\Http\Controllers\User\EventController as UserEventController;
 use App\Models\Category;
 use App\Models\Schedule;
 use App\Models\Service;
@@ -57,15 +58,16 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::group(['prefix' => 'user'], function() {
-    Route::get('dashboard', [UserDashboardController::class, 'index'])->middleware('role:user')->name('user.dashboard');
-    Route::resource('place', UserPlaceController::class);
 
-});
+    Route::middleware(['role:user'])->group(function () {
+        Route::get('dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
+        /*Route::get('places', [UserPlaceController::class, 'index'])->name('user.place.index');
+        Route::get('places/{place}', [UserPlaceController::class, 'show'])->name('user.place.show');
+        Route::get('events', [UserEventController::class, 'index'])->name('user.event.index');
+        Route::get('events/{event}', [UserEventController::class, 'show'])->name('user.event.show');*/
+        Route::resource('places', UserPlaceController::class);
+        Route::resource('events', UserEventController::class);
+    });
+    }
+);
 
-
-
-/*
-Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-
-Route::get('user/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
-*/

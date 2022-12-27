@@ -19,22 +19,11 @@
                   <div id="navbar-collapse" class="collapse navbar-collapse">
                       <ul class="nav navbar-nav ml-auto align-items-center">
                         <li class="nav-item dropdown active">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a href="index.html">Home One</a></li>
-                              <li class="active"><a href="index-2.html">Home Two</a></li>
-                            </ul>
+                            <a href="{{Route('user.dashboard')}}" class="nav-link dropdown-toggle">Lieux </a>
                         </li>
-  
+
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a href="about.html">About Us</a></li>
-                              <li><a href="team.html">Our People</a></li>
-                              <li><a href="testimonials.html">Testimonials</a></li>
-                              <li><a href="faq.html">Faq</a></li>
-                              <li><a href="pricing.html">Pricing</a></li>
-                            </ul>
+                            <a href="{{Route('events.index')}}" class="nav-link dropdown-toggle">Events </a>
                         </li>
                 
                         <li class="nav-item dropdown">
