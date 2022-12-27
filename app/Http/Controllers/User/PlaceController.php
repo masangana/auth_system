@@ -11,7 +11,18 @@ class PlaceController extends Controller
     public function index()
     {
         $places = Place::all();
-        return $places;
+        return view('user.place.index', [
+            'places' => $places
+        ]);
         
+    }
+
+    public function show(Place $place)
+    {
+        $place = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->where('id', $place->id)->firstOrFail();
+        return $place;
+        return view('user.place.show', [
+            'place' => $place
+        ]);
     }
 }
