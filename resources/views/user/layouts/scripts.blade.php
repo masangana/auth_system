@@ -1,8 +1,24 @@
-<script src="{{asset ('user/js/jquery-3.3.1.min.js')}}"></script>
-<script src="{{asset ('user/js/bootstrap.min.js')}}"></script>
-<script src="{{asset ('user/js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset ('user/js/jquery.nice-select.min.js')}}"></script>
-<script src="{{asset ('user/js/jquery-ui.min.js')}}"></script>
-<script src="{{asset ('user/js/jquery.slicknav.js')}}"></script>
-<script src="{{asset ('user/js/owl.carousel.min.js')}}"></script>
-<script src="{{asset ('user/js/main.js')}}"></script>
+
+  <!-- Javascript Files
+  ================================================== -->
+
+  <!-- initialize jQuery Library -->
+  <script src="{{asset ('user/plugins/jQuery/jquery.min.js')}}"></script>
+  <!-- Bootstrap jQuery -->
+  <script src="{{asset ('user/plugins/bootstrap/bootstrap.min.js')}}" defer></script>
+  <!-- Slick Carousel -->
+  <script src="{{asset ('user/plugins/slick/slick.min.js')}}"></script>
+  <script src="{{asset ('user/plugins/slick/slick-animation.min.js')}}"></script>
+  <!-- Color box -->
+  <script src="{{asset ('user/plugins/colorbox/jquery.colorbox.js')}}"></script>
+  <!-- shuffle -->
+  <script src="{{asset ('user/plugins/shuffle/shuffle.min.js')}}" defer></script>
+
+
+  <!-- Google Map API Key-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+  <!-- Google Map Plugin-->
+  <script src="{{asset ('user/plugins/google-map/map.js')}}" defer></script>
+
+  <!-- Template custom -->
+  <script src="{{asset ('user/js/script.js')}}"></script>

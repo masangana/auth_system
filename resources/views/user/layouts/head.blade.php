@@ -1,24 +1,40 @@
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Sona Template">
-    <meta name="keywords" content="Sona, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Basic Page Needs
+  ================================================== -->
+    <meta charset="utf-8">
     <title>@yield('pageTitle') | Awa </title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="{{asset('user/css/bootstrap.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset ('user/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset ('user/css/elegant-icons.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset ('user/css/flaticon.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset ('user/css/owl.carousel.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset ('user/css/nice-select.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset ('user/css/jquery-ui.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset ('user/css/magnific-popup.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset ('user/css/slicknav.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset ('user/css/style.css')}}" type="text/css">
-</head>
+  
+    <!-- Mobile Specific Metas
+  ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name=author content="Themefisher">
+    <meta name=generator content="Themefisher Constra HTML Template v1.0">
+    
+    <!-- theme meta -->
+    <meta name="theme-name" content="constra" />
+  
+    <!-- Favicon
+  ================================================== -->
+    <link rel="icon" type="image/png" href="{{asset ('user/images/favicon.png')}}">
+  
+    <!-- CSS
+  ================================================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{asset ('user/plugins/bootstrap/bootstrap.min.css')}}">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="{{asset ('user/plugins/fontawesome/css/all.min.css')}}">
+    <!-- Animation -->
+    <link rel="stylesheet" href="{{asset ('user/plugins/animate-css/animate.css')}}">
+    <!-- slick Carousel -->
+    <link rel="stylesheet" href="{{asset ('user/plugins/slick/slick.css')}}">
+    <link rel="stylesheet" href="{{asset ('user/plugins/slick/slick-theme.css')}}">
+    <!-- Colorbox -->
+    <link rel="stylesheet" href="{{asset ('user/plugins/colorbox/colorbox.css')}}">
+    <!-- Template styles-->
+    <link rel="stylesheet" href="{{asset ('user/css/style.css')}}">
+  
+  </head>

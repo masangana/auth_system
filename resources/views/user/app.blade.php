@@ -4,19 +4,18 @@
     @include('user.layouts.head')
 
     <body>
+        <div class="body-inner">
 
-        @include('user.layouts.topbar')
+            @include('user.layouts.header')
 
-        @include('user.layouts.mobilemenu')
+            @yield('content')
+            
 
-        @include('user.layouts.header')
+            @include('user.layouts.footer')
 
-        @yield('content')
-        
+            @include('user.layouts.scripts')
 
-        @include('user.layouts.footer')
-
-        @include('user.layouts.scripts')
+        </div>
 
     </body>
 </html>

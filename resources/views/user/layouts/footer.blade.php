@@ -1,25 +1,35 @@
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
-        <div class="copyright-option">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Environmental Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |
-                        This template is made with 
-                    <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                    </div>
-                </div>
+<footer id="footer" class="footer bg-overlay">
+
+    <div class="copyright">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="copyright-info">
+              <span>Copyright &copy; <script>
+                  document.write(new Date().getFullYear())
+                </script>, Designed &amp; Developed by <a href="https://themefisher.com">Themefisher</a></span>
             </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="footer-menu text-center text-md-right">
+              <ul class="list-unstyled">
+                <li><a href="about.html">About</a></li>
+                <li><a href="team.html">Our people</a></li>
+                <li><a href="faq.html">Faq</a></li>
+                <li><a href="news-left-sidebar.html">Blog</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- Row end -->
+
+        <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
+          <button class="btn btn-primary" title="Back to Top">
+            <i class="fa fa-angle-double-up"></i>
+          </button>
         </div>
-    </footer>
-    <!-- Footer Section End -->
+
+      </div><!-- Container end -->
+    </div><!-- Copyright end -->
+  </footer><!-- Footer end -->

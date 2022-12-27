@@ -10,7 +10,9 @@ class PlaceController extends Controller
 {
     public function index()
     {
-        $places = Place::all();
+        //$places = Place::all();
+        $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(10);
+        return $places;
         return view('user.place.index', [
             'places' => $places
         ]);
@@ -20,7 +22,7 @@ class PlaceController extends Controller
     public function show(Place $place)
     {
         $place = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->where('id', $place->id)->firstOrFail();
-        return $place;
+        //return $place;
         return view('user.place.show', [
             'place' => $place
         ]);
