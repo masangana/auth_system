@@ -13,8 +13,8 @@ class DashboardController extends Controller
             $this->middleware('auth');
         }
         public function index() {
-            
-            $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(6);
+
+            $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(1);
             return view('user.dashboard', [
                 'places' => $places
             ]);

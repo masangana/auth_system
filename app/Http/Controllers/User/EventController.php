@@ -10,8 +10,8 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::with('adress', 'contacts', 'images', 'schedules')->paginate(6);
-        return $events;
+        $events = Event::with('adress', 'contacts', 'images', 'schedules', 'categories')->paginate(1);
+        //return $events ;
         return view('user.event.index',
             [
                 'events' => $events
@@ -20,7 +20,7 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        $event = Event::with('adress', 'contacts', 'images', 'services', 'schedules')->where('id', $event->id)->firstOrFail();
+        $event = Event::with('adress', 'contacts', 'images', 'schedules')->where('id', $event->id)->firstOrFail();
         return view('user.event.show', [
             'event' => $event
         ]);
