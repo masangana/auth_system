@@ -88,7 +88,7 @@ class EventController extends Controller
 
     public function show($id)
     {
-        $event = Event::with('adress', 'contacts', 'images')->where('id', $id)->firstOrFail();
+        $event = Event::with('adress', 'contacts', 'images', 'categories')->where('id', $id)->firstOrFail();
  
         //return $event;
         return view('admin.event.show', compact('event'));

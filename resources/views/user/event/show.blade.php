@@ -105,6 +105,20 @@
                 </ul>
               </p>
             </li>
+
+            <li>
+                <h4 class="project-info-label">Tags</h4>
+                <p class="project-info-content">
+                    <ul class="list-arrow">
+                      @if (count($event->categories) == 0)
+                        
+                      @else
+                        @foreach ($event->categories as $category )
+                            <li><strong>{{ $category->name }}</strong></li>
+                        @endforeach
+                        
+                      @endif
+            </li>
           </ul>
   
         </div><!-- Content col end -->
