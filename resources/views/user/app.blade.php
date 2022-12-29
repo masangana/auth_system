@@ -5,6 +5,8 @@
 
     <body>
         <div class="body-inner">
+            
+            @include('user.layouts.topbar')
 
             @include('user.layouts.header')
 

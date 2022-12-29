@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Adress;
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Image;
 use Illuminate\Http\Request;
@@ -19,7 +20,11 @@ class EventController extends Controller
 
     public function create()
     {
-        return view('admin.event.create');
+        $categories = Category::all();
+        return view('admin.event.create', 
+        [
+            'categories' => $categories,
+        ]);
     }
 
     public function store(Request $request)
@@ -74,13 +79,17 @@ class EventController extends Controller
                 $event->images()->save($image);
             }
         }
+
+        //Attach with categories
+        $event->categories()->attach($request->categories);
+
+        return redirect('/admin/event')->with('success', 'Event created!');
     }
 
     public function show($id)
     {
         $event = Event::with('adress', 'contacts', 'images')->where('id', $id)->firstOrFail();
-        //$types = Type::all();
-        
+ 
         //return $event;
         return view('admin.event.show', compact('event'));
     }

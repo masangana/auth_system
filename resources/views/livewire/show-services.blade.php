@@ -1,31 +1,31 @@
-<div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+
+<div class="row">
     @foreach ($services as $service)
-        <div class="col-lg-4 col-md-6 mb-5">
-            <div class="ts-service" >
-                <p>
+
+        <div class="col-md-4 mb-5">
+            <div class="ts-service-box-bg text-center h-100">
+            <span class="ts-service-icon icon-round">
+                <i class="fas fa-map-marker-alt mr-0"></i>
+            </span>
+            <div class="ts-service-box-content">
+                <h4>
                     <a href="{{ route('places.show', $service->place_id) }} ">
                         {{$service->title}}
-                    </a> 
-                </p>
-                <ul>
-                    <li>
-                        MAx : {{$service->max_price}}
-                    </li>
-                    <li>
-                       Min : {{$service->min_price}}
-                    </li>
-                    <li>
+                    </a>
+                </h4>
+                <p>De <strong>{{$service->min_price}}</strong>Fc à <strong>{{$service->max_price}}</strong>Fc</p>
+                    <br>
+                <p>
+                    <span class="badge badge-success">
                         @foreach ($types as $type )
                             @if ($type->id == $service->type_id)
-                             {{$type->name}}
+                            {{$type->name}}
                             @endif
                         @endforeach
-                        
-                    </li>
-                </ul>
+                    </span>
+                </p>
+            </div>
             </div>
         </div>
-        
     @endforeach
-</div>
+</div><!-- 1st row end -->
