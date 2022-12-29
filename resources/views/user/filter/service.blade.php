@@ -2,7 +2,7 @@
 
 @extends('user.app')
 
-@section('pageTitle', 'Home')
+@section('pageTitle', 'Search')
 
 @section('content')
 

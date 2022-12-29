@@ -69,7 +69,7 @@ Route::group(['prefix' => 'user'], function() {
         Route::resource('places', UserPlaceController::class);
         Route::resource('events', UserEventController::class);
         Route::get('services/filter', [FilterController::class, 'services'])->name('services.filter');
-        Route::get('events/filter', [FilterController::class, 'services'])->name('events.filter');
+        Route::get('filter/events', [FilterController::class, 'events'])->name('events.filter');
     });
     }
 );

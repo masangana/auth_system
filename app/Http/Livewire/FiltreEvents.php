@@ -34,6 +34,6 @@ class FiltreEvents extends Component
 
     public function filter()
     {
-        $this->emitTo('show-events', 'categorySelected', $this->category, $this->start_date, $this->end_date, $this->location, $this->query);
+        $this->emitTo('show-events', 'categorySelected', $this->category, $this->start_date, $this->end_date, $this->query);
     }
 }
