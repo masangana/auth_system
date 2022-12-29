@@ -36,5 +36,7 @@
     <link rel="stylesheet" href="{{asset ('user/plugins/colorbox/colorbox.css')}}">
     <!-- Template styles-->
     <link rel="stylesheet" href="{{asset ('user/css/style.css')}}">
+
+    @livewireStyles
   
   </head>

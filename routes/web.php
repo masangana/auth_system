@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\User\PlaceController as UserPlaceController;
 use App\Http\Controllers\User\EventController as UserEventController;
+use App\Http\Controllers\User\FilterController;
 use App\Models\Category;
 use App\Models\Schedule;
 use App\Models\Service;
@@ -67,6 +68,7 @@ Route::group(['prefix' => 'user'], function() {
         Route::get('events/{event}', [UserEventController::class, 'show'])->name('user.event.show');*/
         Route::resource('places', UserPlaceController::class);
         Route::resource('events', UserEventController::class);
+        Route::get('filter', [FilterController::class, 'index'])->name('filter');
     });
     }
 );

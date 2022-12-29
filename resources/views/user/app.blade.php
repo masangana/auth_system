@@ -16,6 +16,6 @@
             @include('user.layouts.scripts')
 
         </div>
-
+        @livewireScripts
     </body>
 </html>
