@@ -28,14 +28,6 @@ class ShowServices extends Component
     {
         $this->services = Service::query();
 
-        /*if ($type && $query && $max) {
-            $this->services = Service::where('type_id', $type)
-                ->where('title', 'like', '%' . $query . '%')
-                ->where('max_price', '<=', $max);
-        } else {
-            
-        } */
-
         if ($type && $query && $max) {
             $this->services = Service::where('type_id', $type)
                 ->where('title', 'like', '%' . $query . '%')
@@ -68,26 +60,7 @@ class ShowServices extends Component
                 }
             }
         }
-        
-/*
-        if ($type || $query) {
-            $this->services = Service::whereRelation('type_id', $type);
-        }
-
-        if ($query) {
-            $this->services = Service::where('title', 'like', '%' . $query . '%');
-        }
-
-        if ($max) {
-            $this->services = Service::where('max_price', '<=', $max);
-        }
-*/
         $this->services = $this->services->get();
-        
-
-       
-
-        
     }
 
 }

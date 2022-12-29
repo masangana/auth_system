@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 
 class FilterController extends Controller
 {
-    public function index()
+    public function services()
     {
-        return view('user.filter.index');
+        return view('user.filter.service');
+    }
+
+    public function events()
+    {
+        return view('user.filter.event');
     }
 }
