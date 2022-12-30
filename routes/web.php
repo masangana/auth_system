@@ -35,7 +35,7 @@ use App\Models\Type;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 Auth::routes();
 
@@ -72,9 +72,9 @@ Route::group(['prefix' => 'user'], function() {
         Route::resource('events', UserEventController::class);
         Route::get('services/filter', [FilterController::class, 'services'])->name('services.filter');
         Route::get('filter/events', [FilterController::class, 'events'])->name('events.filter');
-        Route::get('contact', [ContactController::class, 'contact'])->name('contact.mail');
         Route::resource('comments', CommentController::class);
     });
     }
 );
 
+Route::get('contact', [ContactController::class, 'contact'])->name('contact.mail');

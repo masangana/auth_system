@@ -7,9 +7,16 @@
                 <nav class="navbar navbar-expand-lg navbar-light p-0">
                   
                   <div class="logo">
-                      <a class="d-block" href="{{Route('user.dashboard')}}">
-                        <img loading="lazy" src="{{asset('user/images/logo.png')}}" alt="Constra">
-                      </a>
+                        @guest()
+                        <a class="d-block" href="{{Route('index')}}">
+                            <img loading="lazy" src="{{asset('user/images/logo.png')}}" alt="Constra">
+                        </a>
+                        @else
+                            <a class="d-block" href="{{Route('user.dashboard')}}">
+                                <img loading="lazy" src="{{asset('user/images/logo.png')}}" alt="Constra">
+                            </a>
+                        @endguest
+                      
                   </div><!-- logo end -->
   
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
