@@ -8,7 +8,7 @@
                   
                   <div class="logo">
                       <a class="d-block" href="{{Route('user.dashboard')}}">
-                        <img loading="lazy" src="images/logo.png" alt="Constra">
+                        <img loading="lazy" src="{{asset('user/images/logo.png')}}" alt="Constra">
                       </a>
                   </div><!-- logo end -->
   
@@ -29,45 +29,41 @@
                         <li class="nav-item dropdown">
                             <a href="{{Route('services.filter')}}" class="nav-link dropdown-toggle" >Services </a>
                         </li>
-                
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a href="services.html">Services All</a></li>
-                              <li><a href="service-single.html">Services Single</a></li>
-                            </ul>
-                        </li>
-                
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Features <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a href="typography.html">Typography</a></li>
-                              <li><a href="404.html">404</a></li>
-                              <li class="dropdown-submenu">
-                                  <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Parent Menu</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#!">Child Menu 1</a></li>
-                                    <li><a href="#!">Child Menu 2</a></li>
-                                    <li><a href="#!">Child Menu 3</a></li>
-                                  </ul>
+
+                        <li class="nav-item"><a class="nav-link" href="{{Route('contact.mail')}}">Contact</a></li>
+
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="header-get-a-quote">
+                                    <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                  
+                                <li class="header-get-a-quote">
+                                    <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                              <li>
+                                  <span class="alert alert-primary" role="alert">
+                                      {{ Auth::user()->name }} <i class="fa fa-user"></i>
+                                  </span>
                               </li>
-                            </ul>
-                        </li>
-                
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">News <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a href="news-left-sidebar.html">News Left Sidebar</a></li>
-                              <li><a href="news-right-sidebar.html">News Right Sidebar</a></li>
-                              <li><a href="news-single.html">News Single</a></li>
-                            </ul>
-                        </li>
-                
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-  
-                        <li class="header-get-a-quote">
-                            <a class="btn btn-primary" href="contact.html">Get Free Quote</a>
-                        </li>
+                              <li class="header-get-a-quote">
+                                    <a class="btn btn-primary" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                      document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </li>
+                        @endguest
                       </ul>
                   </div>
                 </nav>

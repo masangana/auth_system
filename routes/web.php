@@ -16,6 +16,7 @@ use App\Http\Controllers\User\CommentController;
 use App\Http\Controllers\User\PlaceController as UserPlaceController;
 use App\Http\Controllers\User\EventController as UserEventController;
 use App\Http\Controllers\User\FilterController;
+use App\Http\Controllers\User\ContactController;
 use App\Models\Category;
 use App\Models\Schedule;
 use App\Models\Service;
@@ -71,6 +72,7 @@ Route::group(['prefix' => 'user'], function() {
         Route::resource('events', UserEventController::class);
         Route::get('services/filter', [FilterController::class, 'services'])->name('services.filter');
         Route::get('filter/events', [FilterController::class, 'events'])->name('events.filter');
+        Route::get('contact', [ContactController::class, 'contact'])->name('contact.mail');
         Route::resource('comments', CommentController::class);
     });
     }
