@@ -9,32 +9,30 @@
 <!--/ Premium for ads -->
 
 <div class="banner-carousel banner-carousel-2 mb-0">
-    <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg4.jpg)">
+    <div class="banner-carousel-item" style="background-image:url({{asset('user/images/slide1.jpg')}})">
       <div class="container">
           <div class="box-slider-content">
             <div class="box-slider-text">
-                <h2 class="box-slide-title">17 Years Of Excellence In</h2>
-                <h3 class="box-slide-sub-title">Construction Industry</h3>
-                <p class="box-slide-description">You have ideas, goals, and dreams. We have a culturally diverse, forward
-                  thinking team looking for talent like.</p>
+                <h2 class="box-slide-title">Les Bons coins</h2>
+                <h3 class="box-slide-sub-title">Une visibilité gratuite</h3>
+                <p class="box-slide-description">Vous posseder un établissement ou sipmlement souhaitez partager vos secret laissez nous un message.</p>
                 <p>
-                  <a href="services.html" class="slider btn btn-primary">Our Service</a>
+                  <a href="{{ route('contact.mail') }}" class="slider btn btn-primary">Contact</a>
                 </p>
             </div>
           </div>
       </div>
     </div>
   
-    <div class="banner-carousel-item" style="background-image:url(images/slider-main/bg5.jpg)">
+    <div class="banner-carousel-item" style="background-image:url({{asset('user/images/slide2.jpg')}})">
       <div class="slider-content text-left">
           <div class="container">
             <div class="box-slider-content">
                 <div class="box-slider-text">
-                  <h2 class="box-slide-title">When Services Matters</h2>
-                  <h3 class="box-slide-sub-title">Your Choice is Simple</h3>
-                  <p class="box-slide-description">You have ideas, goals, and dreams. We have a culturally diverse, forward
-                      thinking team looking for talent like.</p>
-                  <p><a href="about.html" class="slider btn btn-primary" aria-label="about-us">Know Us</a></p>
+                  <h2 class="box-slide-title">Agenda</h2>
+                  <h3 class="box-slide-sub-title">Un evenement de qualité</h3>
+                  <p class="box-slide-description">Concert, Conference, Webinar ou autre, Donnez une visibilité à votre evenement et marquez les esprits.</p>
+                  <p><a href="{{ route('contact.mail') }}" class="slider btn btn-primary" aria-label="about-us">Contact</a></p>
                 </div>
             </div>
           </div>
@@ -135,7 +133,7 @@
   
                 <div class="col-md-5 newsletter-form">
                     <div class="call-to-action-btn">
-                        <a class="btn btn-primary" href="{{ route('register') }}">Inscription</a>
+                        <a class="btn btn-primary" href="{{ route('contact.mail') }}">contact</a>
                     </div>
                 </div>
             </div><!-- Newsletter end -->
