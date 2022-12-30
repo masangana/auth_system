@@ -12,7 +12,7 @@
                             <img loading="lazy" src="{{asset('user/images/logo.png')}}" alt="Constra">
                         </a>
                         @else
-                            <a class="d-block" href="{{Route('user.dashboard')}}">
+                            <a class="d-block" href="{{Route('home')}}">
                                 <img loading="lazy" src="{{asset('user/images/logo.png')}}" alt="Constra">
                             </a>
                         @endguest

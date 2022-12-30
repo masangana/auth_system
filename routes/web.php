@@ -34,13 +34,9 @@ use App\Models\Type;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [GuestController::class, 'index'])->name('home');
 
 
 Route::group(['prefix' => 'admin'], function() {
@@ -65,10 +61,6 @@ Route::group(['prefix' => 'user'], function() {
 
     Route::middleware(['role:user'])->group(function () {
         Route::get('dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
-        /*Route::get('places', [UserPlaceController::class, 'index'])->name('user.place.index');
-        Route::get('places/{place}', [UserPlaceController::class, 'show'])->name('user.place.show');
-        Route::get('events', [UserEventController::class, 'index'])->name('user.event.index');
-        Route::get('events/{event}', [UserEventController::class, 'show'])->name('user.event.show');*/
         Route::resource('places', UserPlaceController::class);
         Route::resource('events', UserEventController::class);
         Route::get('services/filter', [FilterController::class, 'services'])->name('services.filter');

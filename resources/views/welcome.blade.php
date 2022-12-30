@@ -50,12 +50,12 @@
           <div class="row">
             <div class="col-md-8 text-center text-md-left">
                 <div class="call-to-action-text">
-                  <h3 class="action-title">We understand your needs on construction</h3>
+                  <h3 class="action-title">Inscrivez-vous pour avoir accez à plus de fonctionalité</h3>
                 </div>
             </div><!-- Col end -->
             <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
                 <div class="call-to-action-btn">
-                  <a class="btn btn-primary" href="contact.html">Request Quote</a>
+                  <a class="btn btn-primary" href="{{ route('register') }}">Inscription</a>
                 </div>
             </div><!-- col end -->
           </div><!-- row end -->
@@ -121,25 +121,22 @@
       <div class="row">
           <div class="col-lg-4">
             <div class="subscribe-call-to-acton">
-                <h3>Can We Help?</h3>
-                <h4>(+9) 847-291-4353</h4>
+                <h3>Besoin de visibilité?</h3>
+                <h4>(+7) 999-805-0076</h4>
             </div>
           </div><!-- Col end -->
   
           <div class="col-lg-8">
             <div class="ts-newsletter row align-items-center">
-                <div class="col-md-5 newsletter-introtext">
-                  <h4 class="text-white mb-0">Newsletter Sign-up</h4>
-                  <p class="text-white">Latest updates and news</p>
+                <div class="col-md-7 newsletter-introtext">
+                  <h4 class="text-white mb-0">Laissez-nous un message</h4>
+                  <p class="text-white">Et faites vous connaitre gratuitement</p>
                 </div>
   
-                <div class="col-md-7 newsletter-form">
-                  <form action="#" method="post">
-                      <div class="form-group">
-                        <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
-                        <input type="email" name="email" id="newsletter-email" class="form-control form-control-lg" placeholder="Your your email and hit enter" autocomplete="off">
-                      </div>
-                  </form>
+                <div class="col-md-5 newsletter-form">
+                    <div class="call-to-action-btn">
+                        <a class="btn btn-primary" href="{{ route('register') }}">Inscription</a>
+                    </div>
                 </div>
             </div><!-- Newsletter end -->
           </div><!-- Col end -->
