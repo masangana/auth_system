@@ -18,6 +18,7 @@ use App\Http\Controllers\User\EventController as UserEventController;
 use App\Http\Controllers\User\FilterController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\User\GuestController;
+use App\Http\Controllers\HomeController;
 use App\Models\Category;
 use App\Models\Schedule;
 use App\Models\Service;
@@ -36,14 +37,7 @@ use App\Models\Type;
 
 Auth::routes();
 
-Route::get('/home', [GuestController::class, 'index'])->name('home');
-
-
 Route::group(['prefix' => 'admin'], function() {
-    //Route::get('dashboard', [AdminDashboardController::class, 'index'])->middleware('role:admin')->name('admin.dashboard');
-
-    //Route::resource('place', PlaceController::class)->middleware('role:admin');
-
     Route::middleware(['role:admin'])->group(function () {
         Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
         Route::resource('place', PlaceController::class);
@@ -71,5 +65,5 @@ Route::group(['prefix' => 'user'], function() {
 );
 
 Route::get('contact', [ContactController::class, 'contact'])->name('contact.mail');
-
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [GuestController::class, 'index'])->name('index');

@@ -57,8 +57,7 @@
           </div>
         </div>
   
-      </div><!-- Content row end -->
-  
+      </div>
     </div><!-- Conatiner end -->
 </section>
     

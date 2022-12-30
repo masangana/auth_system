@@ -14,7 +14,7 @@ class DashboardController extends Controller
         }
         public function index() {
 
-            $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(1);
+            $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(6);
             return view('user.dashboard', [
                 'places' => $places
             ]);

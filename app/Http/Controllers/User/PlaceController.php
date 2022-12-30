@@ -11,7 +11,7 @@ class PlaceController extends Controller
     public function index()
     {
         //$places = Place::all();
-        $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(10);
+        $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(6);
         //return $places;
         return view('user.place.index', [
             'places' => $places

@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::with('adress', 'contacts', 'images', 'schedules', 'categories')->paginate(1);
+        $events = Event::with('adress', 'contacts', 'images', 'schedules', 'categories')->paginate(6);
         //return $events ;
         return view('user.event.index',
             [

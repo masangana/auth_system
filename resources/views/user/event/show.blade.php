@@ -118,6 +118,8 @@
                         @endforeach
                         
                       @endif
+                    </ul>
+                </p>
             </li>
           </ul>
   
