@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PlaceController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\User\CommentController;
 use App\Http\Controllers\User\PlaceController as UserPlaceController;
 use App\Http\Controllers\User\EventController as UserEventController;
 use App\Http\Controllers\User\FilterController;
@@ -70,6 +71,7 @@ Route::group(['prefix' => 'user'], function() {
         Route::resource('events', UserEventController::class);
         Route::get('services/filter', [FilterController::class, 'services'])->name('services.filter');
         Route::get('filter/events', [FilterController::class, 'events'])->name('events.filter');
+        Route::resource('comments', CommentController::class);
     });
     }
 );

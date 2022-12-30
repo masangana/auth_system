@@ -21,7 +21,7 @@ class PlaceController extends Controller
 
     public function show(Place $place)
     {
-        $place = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->where('id', $place->id)->firstOrFail();
+        $place = Place::with('adress', 'contacts', 'images', 'services', 'schedules', 'comments')->where('id', $place->id)->firstOrFail();
         //return $place;
         return view('user.place.show', [
             'place' => $place
