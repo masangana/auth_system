@@ -21,7 +21,8 @@ class FiltreEvents extends Component
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.filtre-events', 
+
+        return view('livewire.filtre-events',
             [
                 'categories' => $categories,
             ]);

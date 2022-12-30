@@ -11,7 +11,6 @@ class CommentController extends Controller
 {
     public function store(Request $request)
     {
-
         //return $request->all();
         $request->validate([
             'comment' => 'required',
@@ -19,11 +18,9 @@ class CommentController extends Controller
             'user' => 'required',
         ]);
 
-        
-
         $comment = new Comment();
         $place = Place::find($request->place);
-        
+
         $comment->content = $request->comment;
         //$comment->place_id = $request->place;
         $comment->user_id = $request->user;

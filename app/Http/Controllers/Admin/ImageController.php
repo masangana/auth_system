@@ -15,8 +15,9 @@ class ImageController extends Controller
         ]);
 
         $image = $request->file('img');
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        $new_name = rand().'.'.$image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
+
         return back()->with('success', 'You have successfully upload image.')->with('path', $new_name);
     }
 
@@ -26,6 +27,4 @@ class ImageController extends Controller
         //$image->delete();
         return back()->with('success', 'You have successfully delete image.');
     }
-
-
 }

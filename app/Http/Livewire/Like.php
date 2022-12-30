@@ -22,6 +22,7 @@ class Like extends Component
         $this->place->like = $this->place->like + 1;
         $this->place->save();
     }
+
     public function render()
     {
         return view('livewire.like');

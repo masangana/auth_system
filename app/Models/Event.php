@@ -9,7 +9,6 @@ class Event extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'title',
         'description',
@@ -45,6 +44,4 @@ class Event extends Model
     {
         return $this->belongsToMany(Category::class, 'category_events');
     }
-
-    
 }
