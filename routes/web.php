@@ -12,6 +12,13 @@ use App\Http\Controllers\Admin\PlaceController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\User\CommentController;
+use App\Http\Controllers\User\PlaceController as UserPlaceController;
+use App\Http\Controllers\User\EventController as UserEventController;
+use App\Http\Controllers\User\FilterController;
+use App\Http\Controllers\User\ContactController;
+use App\Http\Controllers\User\GuestController;
+use App\Http\Controllers\HomeController;
 use App\Models\Category;
 use App\Models\Schedule;
 use App\Models\Service;
@@ -28,20 +35,9 @@ use App\Models\Type;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
 Route::group(['prefix' => 'admin'], function() {
-    //Route::get('dashboard', [AdminDashboardController::class, 'index'])->middleware('role:admin')->name('admin.dashboard');
-
-    //Route::resource('place', PlaceController::class)->middleware('role:admin');
-
     Route::middleware(['role:admin'])->group(function () {
         Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
         Route::resource('place', PlaceController::class);
@@ -56,14 +52,18 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::group(['prefix' => 'user'], function() {
-    Route::get('dashboard', [UserDashboardController::class, 'index'])->middleware('role:user')->name('user.dashboard');
 
-});
+    Route::middleware(['role:user'])->group(function () {
+        Route::get('dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
+        Route::resource('places', UserPlaceController::class);
+        Route::resource('events', UserEventController::class);
+        Route::get('services/filter', [FilterController::class, 'services'])->name('services.filter');
+        Route::get('filter/events', [FilterController::class, 'events'])->name('events.filter');
+        Route::resource('comments', CommentController::class);
+    });
+    }
+);
 
-
-
-/*
-Route::get('admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-
-Route::get('user/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
-*/
+Route::get('contact', [ContactController::class, 'contact'])->name('contact.mail');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [GuestController::class, 'index'])->name('index');

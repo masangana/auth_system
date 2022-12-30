@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
             $table->foreignId('type_id')->constrained('types')->onDelete('cascade');
+            $table->unique(['service_id', 'type_id']);
             $table->timestamps();
         });
     }

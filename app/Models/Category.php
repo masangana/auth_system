@@ -13,4 +13,9 @@ class Category extends Model
     {
         return $this->belongsToMany(Place::class, 'category_places');
     }
+
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'category_events');
+    }
 }

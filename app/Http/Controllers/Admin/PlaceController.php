@@ -90,7 +90,7 @@ class PlaceController extends Controller
 
     public function show($id)
     {
-        $place = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->where('id', $id)->firstOrFail();
+        $place = Place::with('adress', 'contacts', 'images', 'services', 'schedules', 'comments')->where('id', $id)->firstOrFail();
         $types = Type::all();
         
         //return $place;
