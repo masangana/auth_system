@@ -6,25 +6,27 @@ use App\Http\Controllers\Controller;
 use App\Models\Adress;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\Event;
 use App\Models\Image;
 use Illuminate\Http\Request;
-use App\Models\Event;
 
 class EventController extends Controller
 {
     public function index()
     {
         $events = Event::paginate(10);
+
         return view('admin.event.index', compact('events'));
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('admin.event.create', 
-        [
-            'categories' => $categories,
-        ]);
+
+        return view('admin.event.create',
+            [
+                'categories' => $categories,
+            ]);
     }
 
     public function store(Request $request)
@@ -46,7 +48,7 @@ class EventController extends Controller
 
         //Create a new event
         $event = new Event;
-        
+
         $event->title = $request->title;
         $event->description = $request->description;
         $event->finished = 0;
@@ -54,28 +56,28 @@ class EventController extends Controller
 
         //Create a new adress
         $adress = new Adress;
-        $adress->town =  $request->town;
-        $adress->district =  $request->district;
-        $adress->city =  $request->city;
-        $adress->country =  $request->country;
-        $adress->avenue =  $request->avenue;
-        $adress->number =  $request->number;
+        $adress->town = $request->town;
+        $adress->district = $request->district;
+        $adress->city = $request->city;
+        $adress->country = $request->country;
+        $adress->avenue = $request->avenue;
+        $adress->number = $request->number;
         $event->adress()->save($adress);
 
         //Create a new contact
         $contact = new Contact;
-        $contact->phone =  $request->phone;
-        $contact->mail =  $request->mail;
-        $contact->web_site =  $request->web_site;
+        $contact->phone = $request->phone;
+        $contact->mail = $request->mail;
+        $contact->web_site = $request->web_site;
         $event->contacts()->save($contact);
 
         //Create a new image
         if ($request->hasFile('img')) {
             foreach ($request->file('img') as $file) {
-                $imageName = time().rand(0,99).'.'.$file->extension(); 
+                $imageName = time().rand(0, 99).'.'.$file->extension();
                 $file->move(public_path('images'), $imageName);
                 $image = new Image;
-                $image->link =  $imageName;
+                $image->link = $imageName;
                 $event->images()->save($image);
             }
         }
@@ -89,7 +91,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::with('adress', 'contacts', 'images', 'categories')->where('id', $id)->firstOrFail();
- 
+
         //return $event;
         return view('admin.event.show', compact('event'));
     }
@@ -107,7 +109,7 @@ class EventController extends Controller
     public function destroy($id)
     {
         Event::where('id', $id)->delete();
+
         return redirect('/admin/event')->with('success', 'Event deleted!');
     }
-
 }

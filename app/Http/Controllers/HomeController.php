@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Place;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -24,10 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(6);
 
-       $places = Place::with('adress', 'contacts', 'images', 'services', 'schedules')->paginate(6);
-            return view('user.dashboard', [
-                'places' => $places
-            ]);
+        return view('user.dashboard', [
+            'places' => $places,
+        ]);
     }
 }

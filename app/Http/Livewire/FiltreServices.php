@@ -4,13 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Service;
 use App\Models\Type;
-use App\Models\Category;
 use Livewire\Component;
 
 class FiltreServices extends Component
 {
-
     public $type;
+
     public $query;
 
     public $max;
@@ -18,6 +17,7 @@ class FiltreServices extends Component
     public function render()
     {
         $types = Type::all();
+
         return view('livewire.filtre-services',
             [
                 'types' => $types,
@@ -33,6 +33,4 @@ class FiltreServices extends Component
     {
         $this->emitTo('show-services', 'typeSelected', $this->type, $this->query, $this->max);
     }
-
-
 }

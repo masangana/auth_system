@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->boolean('close') -> default(0);
+            $table->boolean('close')->default(0);
             $table->bigInteger('like');
-            
+
             $table->timestamps();
         });
     }

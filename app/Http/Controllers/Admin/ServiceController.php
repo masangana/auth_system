@@ -8,11 +8,10 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-
     public function index()
     {
         $services = Service::paginate(10);
-        //return view('admin.service.home', compact('services')); 
+        //return view('admin.service.home', compact('services'));
     }
 
     public function create()
@@ -22,19 +21,17 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
-       
-
         $request->validate([
             'title' => 'required',
             'description' => 'required',
             'maxPrice' => 'required|gt:minPrice',
             'minPrice' => 'required|lt:maxPrice',
-            'type' => 'required'
+            'type' => 'required',
         ]);
         //return $request->all();
         //Create a new service
         $service = new Service;
-        $service->place_id = $request->place ;
+        $service->place_id = $request->place;
         $service->title = $request->title;
         $service->type_id = $request->type;
         $service->description = $request->description;
@@ -48,12 +45,14 @@ class ServiceController extends Controller
     public function show($id)
     {
         $service = Service::find($id);
+
         return view('admin.service.show', compact('service'));
     }
 
     public function edit($id)
     {
         $service = Service::find($id);
+
         return view('admin.service.edit', compact('service'));
     }
 
@@ -85,5 +84,4 @@ class ServiceController extends Controller
 
         return redirect()->route('place.show', ['place' => $service->place_id])->with('success', 'Service deleted successfully.');
     }
-    
 }

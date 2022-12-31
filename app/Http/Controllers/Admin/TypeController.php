@@ -11,8 +11,9 @@ class TypeController extends Controller
     public function index()
     {
         $types = Type::paginate(10);
+
         return view('admin.type.home', [
-            'types' => $types
+            'types' => $types,
         ]
         );
     }
@@ -39,7 +40,7 @@ class TypeController extends Controller
     public function show($id)
     {
         //
-    }   
+    }
 
     public function edit($id)
     {
@@ -54,7 +55,7 @@ class TypeController extends Controller
     public function destroy($id)
     {
         Type::where('id', $id)->delete();
-        return redirect()->route('type.index');
 
+        return redirect()->route('type.index');
     }
 }
