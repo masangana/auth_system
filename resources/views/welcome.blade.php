@@ -83,11 +83,11 @@
                             <div class="col-lg-4 col-md-6 mb-5">
                                 <div class="ts-service-box">
                                     <div class="ts-service-image-wrapper">
-                                    <img loading="lazy" class="w-100" src="{{asset("images/".$place->images[1]->link)}}" alt="{{$place->images[1]->link}}">
+                                    <img loading="lazy" class="w-100" src="{{asset("images/".$place->images[0]->link)}}" alt="{{$place->images[0]->link}}">
                                     </div>
                                     <div class="d-flex">
                                     <div class="ts-service-box-img">
-                                        <img loading="lazy" src="{{asset('user/images/icon-image/service-icon1.png')}}" alt="{{asset("images/".$place->images[1]->link)}}">
+                                        <img loading="lazy" src="{{asset('user/images/icon-image/service-icon1.png')}}" alt="{{asset("images/".$place->images[0]->link)}}">
                                     </div>
                                     <div class="ts-service-info">
                                         <h3 class="service-box-title"><a href="{{ route('places.show', $place->id) }}">{{$place->name}}</a></h3>
@@ -172,7 +172,7 @@
                       @if (count($event->categories) == 0)
                         <img class="img-fluid" src="images/projects/project1.jpg" alt="project-image">
                       @else
-                        <img class="img-fluid" src=" {{asset("images/".$event->images[1]->link)}} " alt="{{$event->images[1]->link}}">
+                        <img class="img-fluid" src=" {{asset("images/".$event->images[0]->link)}} " alt="{{$event->images[0]->link}}">
                       @endif
                       <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                     </a>

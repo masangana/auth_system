@@ -22,7 +22,7 @@
                       @if (count($event->categories) == 0)
                         <img class="img-fluid" src="images/projects/project1.jpg" alt="project-image">
                       @else
-                        <img class="img-fluid" src=" {{asset("images/".$event->images[1]->link)}} " alt="{{$event->images[1]->link}}">
+                        <img class="img-fluid" src=" {{asset("images/".$event->images[0]->link)}} " alt="{{$event->images[0]->link}}">
                       @endif
                       <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                     </a>

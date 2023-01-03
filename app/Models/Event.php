@@ -17,7 +17,7 @@ class Event extends Model
 
     public function schedules()
     {
-        return $this->hasMany(event_schedule::class);
+        return $this->hasMany(Event_schedule::class);
     }
 
     public function comments()

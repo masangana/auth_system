@@ -20,11 +20,11 @@
                                 <div class="col-lg-4 col-md-6 mb-5">
                                     <div class="ts-service-box">
                                         <div class="ts-service-image-wrapper">
-                                        <img loading="lazy" class="w-100" src="{{asset("images/".$place->images[1]->link)}}" alt="{{$place->images[1]->link}}">
+                                        <img loading="lazy" class="w-100" src="{{asset("images/".$place->images[0]->link)}}" alt="{{$place->images[0]->link}}">
                                         </div>
                                         <div class="d-flex">
                                         <div class="ts-service-box-img">
-                                            <img loading="lazy" src="images/icon-image/service-icon1.png" alt="{{asset("images/".$place->images[1]->link)}}">
+                                            <img loading="lazy" src="{{asset('user/images/icon-image/service-icon1.png')}}" alt="{{asset("images/".$place->images[0]->link)}}">
                                         </div>
                                         <div class="ts-service-info">
                                             <h3 class="service-box-title"><a href="{{ route('places.show', $place->id) }}">{{$place->name}}</a></h3>
